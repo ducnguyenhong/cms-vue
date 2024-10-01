@@ -39,7 +39,7 @@ const {isOpenMenu, menuWidth} = storeToRefs(menuStore)
         </template>
 
         <template v-for="subItem in item.children" :key="subItem.index">
-          <el-menu-item :index="subItem.index" style="margin-left: 8px;">{{ subItem.title }}</el-menu-item>
+          <el-menu-item :index="subItem.index">{{ subItem.title }}</el-menu-item>
         </template>
       </el-sub-menu>
     </div>
@@ -56,6 +56,11 @@ const {isOpenMenu, menuWidth} = storeToRefs(menuStore)
 
 .el-menu-item {
   height: 45px;
+}
+
+ul > .el-menu-item {
+  background-color: #000C17;
+  padding-left: 48px!important;
 }
 
 .el-sub-menu__title {
