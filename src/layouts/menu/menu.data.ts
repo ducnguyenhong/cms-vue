@@ -1,4 +1,7 @@
-import DoubleArrowRight from '@/assets/icons/double-arrow-right.svg';
+import NewsIcon from '@/assets/icons/news.svg';
+import OrderIcon from '@/assets/icons/order.svg';
+import ProductIcon from '@/assets/icons/product.svg';
+import SettingIcon from '@/assets/icons/setting.svg';
 
 interface Menu {
   index: string
@@ -12,7 +15,7 @@ export const MENU_DATA:Menu[] = [
   {
     index: '1',
     title: 'Đơn hàng',
-    icon: DoubleArrowRight,
+    icon: OrderIcon,
     children: [
       {
         index: '1-1',
@@ -29,7 +32,7 @@ export const MENU_DATA:Menu[] = [
   {
     index: '2',
     title: 'Quản lý sản phẩm',
-    icon: DoubleArrowRight,
+    icon: ProductIcon,
     children: [
       {
         index: '2-1',
@@ -46,12 +49,12 @@ export const MENU_DATA:Menu[] = [
   {
     index: '3',
     title: 'Tin tức',
-    icon: DoubleArrowRight
+    icon: NewsIcon
   },
   {
     index: '4',
     title: 'Cấu hình Client',
-    icon: DoubleArrowRight,
+    icon: SettingIcon,
     children: [
       {
         index: '4-1',

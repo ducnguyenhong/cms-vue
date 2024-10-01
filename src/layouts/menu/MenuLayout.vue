@@ -13,7 +13,7 @@ const {isOpenMenu, menuWidth} = storeToRefs(menuStore)
   <el-menu
     default-active="1-1"
     background-color="#001529"
-    text-color="#f2f2f2"
+    text-color="#ccc"
     active-text-color="#8bb9f9"
     class="el-menu-cms"
     show-timeout="250"
@@ -39,9 +39,7 @@ const {isOpenMenu, menuWidth} = storeToRefs(menuStore)
         </template>
 
         <template v-for="subItem in item.children" :key="subItem.index">
-          <el-menu-item>
-            <el-menu-item :index="subItem.index">{{ subItem.title }}</el-menu-item>
-          </el-menu-item>
+          <el-menu-item :index="subItem.index" style="margin-left: 8px;">{{ subItem.title }}</el-menu-item>
         </template>
       </el-sub-menu>
     </div>

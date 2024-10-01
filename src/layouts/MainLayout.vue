@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import DoubleArrowLeft from '@/assets/icons/DoubleArrowLeft.vue';
 import DoubleArrowRight from '@/assets/icons/DoubleArrowRight.vue';
-import Logo from '@/assets/logo.png';
+import Logo from '@/assets/images/logo.png';
 import { storeToRefs } from 'pinia';
 import { useOpenMenuStore } from './layout.state';
 import MenuLayout from './menu/MenuLayout.vue';
