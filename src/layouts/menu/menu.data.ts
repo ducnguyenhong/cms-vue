@@ -20,12 +20,12 @@ export const MENU_DATA:Menu[] = [
       {
         index: '1-1',
         title: 'Đơn mới',
-        route: '/new-orders'
+        route: '/feedbacks'
       },
       {
         index: '1-2',
         title: 'Tất cả đơn',
-        route: '/all-orders'
+        route: '/feedbacks'
       }
     ]
   },
@@ -36,20 +36,31 @@ export const MENU_DATA:Menu[] = [
     children: [
       {
         index: '2-1',
-        title: 'Đơn mới 2',
-        route: '/new-orders'
+        title: 'Sản phẩm',
+        route: '/feedbacks'
       },
       {
         index: '2-2',
-        title: 'Tất cả đơn 2',
-        route: '/all-orders'
+        title: 'Background',
+        route: '/feedbacks'
+      },
+      {
+        index: '2-3',
+        title: 'Sticker',
+        route: '/feedbacks'
+      },
+      {
+        index: '2-4',
+        title: 'Danh mục',
+        route: '/feedbacks'
       }
     ]
   },
   {
     index: '3',
     title: 'Tin tức',
-    icon: NewsIcon
+    icon: NewsIcon,
+    route: '/feedbacks'
   },
   {
     index: '4',
@@ -58,13 +69,28 @@ export const MENU_DATA:Menu[] = [
     children: [
       {
         index: '4-1',
-        title: 'Đơn mới 4',
-        route: '/new-orders'
+        title: 'Banner',
+        route: '/feedbacks'
       },
       {
         index: '4-2',
-        title: 'Tất cả đơn 4',
-        route: '/all-orders'
+        title: 'Bộ sưu tập',
+        route: '/feedbacks'
+      },
+      {
+        index: '4-3',
+        title: 'Các bước đặt hàng',
+        route: '/feedbacks'
+      },
+      {
+        index: '4-4',
+        title: 'Phản hồi',
+        route: '/feedbacks'
+      },
+      {
+        index: '4-5',
+        title: 'Câu hỏi thường gặp',
+        route: '/feedbacks'
       }
     ]
   }

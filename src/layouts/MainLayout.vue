@@ -3,6 +3,7 @@ import DoubleArrowLeft from '@/assets/icons/DoubleArrowLeft.vue';
 import DoubleArrowRight from '@/assets/icons/DoubleArrowRight.vue';
 import Logo from '@/assets/images/logo.png';
 import { storeToRefs } from 'pinia';
+import HeaderLayout from './header/HeaderLayout.vue';
 import { useOpenMenuStore } from './layout.state';
 import MenuLayout from './menu/MenuLayout.vue';
 
@@ -37,8 +38,14 @@ const {toggleMenu} = menuStore
         <MenuLayout />
       </el-aside>
       <el-container>
-        <el-header>Header</el-header>
-        <el-main>Main</el-main>
+        <el-header style="padding: 0;">
+          <HeaderLayout/>
+        </el-header>
+        <el-main style="padding: 25px; background-color: #f5f5f5;">
+          <div style="background-color: #FFF; border-radius: 10px; padding: 15px 17px; min-height: calc(100vh - 150px);">
+            Main
+          </div>
+        </el-main>
       </el-container>
     </el-container>
   </div>

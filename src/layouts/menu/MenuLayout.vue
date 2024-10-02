@@ -16,8 +16,8 @@ const {isOpenMenu, menuWidth} = storeToRefs(menuStore)
     text-color="#ccc"
     active-text-color="#8bb9f9"
     class="el-menu-cms"
-    show-timeout="250"
-    hide-timeout="100"
+    show-timeout="0"
+    hide-timeout="0"
     :style="{width: menuWidth}"
     :collapse="!isOpenMenu"
 
