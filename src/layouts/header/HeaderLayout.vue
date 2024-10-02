@@ -15,9 +15,9 @@ import UserIcon from '@/assets/images/user.png';
     <div>
       <el-popover
         placement="bottom"
-        show-arrow="false"
         trigger="click"
         :width="280"
+        :show-arrow="false"
         popper-style="padding: 0"
       >
         <template #reference>
