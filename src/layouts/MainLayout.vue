@@ -2,19 +2,34 @@
 import DoubleArrowLeft from '@/assets/icons/DoubleArrowLeft.vue';
 import DoubleArrowRight from '@/assets/icons/DoubleArrowRight.vue';
 import Logo from '@/assets/images/logo.png';
+import { useUserStore } from '@/states/common.state';
 import { storeToRefs } from 'pinia';
+import { useRouter } from 'vue-router';
 import HeaderLayout from './header/HeaderLayout.vue';
 import { useOpenMenuStore } from './layout.state';
 import MenuLayout from './menu/MenuLayout.vue';
 
+const router = useRouter()
 const menuStore = useOpenMenuStore()
 const {isOpenMenu, menuWidth} = storeToRefs(menuStore)
 const {toggleMenu} = menuStore
+const userStore = useUserStore()
+const {token} = storeToRefs(userStore)
+
+const isAuth = !!token.value
+
+if(!isAuth){
+  router.push('/login')
+}
 
 </script>
 
 <template>
-  <div>
+  <div v-if="!isAuth">
+    <router-view/>
+  </div>
+
+  <div v-else>
     <el-container>
       <el-aside :width="menuWidth" style="background-color: #001529;">
         <div style="padding: 0 15px; height: 60px; border-bottom: 1px solid #00284d;">
@@ -43,7 +58,7 @@ const {toggleMenu} = menuStore
         </el-header>
         <el-main style="padding: 25px; background-color: #f5f5f5;">
           <div style="background-color: #FFF; border-radius: 10px; padding: 15px 17px; min-height: calc(100vh - 150px);">
-            Main
+            <router-view/>
           </div>
         </el-main>
       </el-container>
