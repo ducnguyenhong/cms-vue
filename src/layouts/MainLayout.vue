@@ -2,50 +2,54 @@
 import DoubleArrowLeft from '@/assets/icons/DoubleArrowLeft.vue';
 import DoubleArrowRight from '@/assets/icons/DoubleArrowRight.vue';
 import Logo from '@/assets/images/logo.png';
-import { useUserStore } from '@/states/common.state';
+import { useTokenStore } from '@/states/common.state';
 import { storeToRefs } from 'pinia';
 import { useRouter } from 'vue-router';
 import HeaderLayout from './header/HeaderLayout.vue';
 import { useOpenMenuStore } from './layout.state';
 import MenuLayout from './menu/MenuLayout.vue';
+import { computed } from 'vue';
 
-const router = useRouter()
-const menuStore = useOpenMenuStore()
-const {isOpenMenu, menuWidth} = storeToRefs(menuStore)
-const {toggleMenu} = menuStore
-const userStore = useUserStore()
-const {token} = storeToRefs(userStore)
+const router = useRouter();
+const menuStore = useOpenMenuStore();
+const { isOpenMenu, menuWidth } = storeToRefs(menuStore);
+const { toggleMenu } = menuStore;
+const tokenStore = useTokenStore();
+const { token } = storeToRefs(tokenStore);
 
-const isAuth = !!token.value
+const isAuth = computed(() => !!token.value);
 
-if(!isAuth){
-  router.push('/login')
+if (!isAuth.value) {
+  router.push('/login');
 }
-
 </script>
 
 <template>
   <div v-if="!isAuth">
-    <router-view/>
+    <router-view />
   </div>
 
   <div v-else>
     <el-container>
-      <el-aside :width="menuWidth" style="background-color: #001529;">
-        <div style="padding: 0 15px; height: 60px; border-bottom: 1px solid #00284d;">
-          <div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: space-between;">
+      <el-aside :width="menuWidth" style="background-color: #001529">
+        <div style="padding: 0 15px; height: 60px; border-bottom: 1px solid #00284d">
+          <div style="height: 100%; width: 100%; display: flex; align-items: center; justify-content: space-between">
             <RouterLink to="/" v-if="isOpenMenu">
-              <div style="display: flex; align-items: center; gap: 10px;">
+              <div style="display: flex; align-items: center; gap: 10px">
                 <el-image style="width: 30px; height: 30px" :src="Logo" fit="cover" />
-                <p style="color: #FFF;">CMS Vue</p>
+                <p style="color: #fff">CMS Vue</p>
               </div>
             </RouterLink>
-            <button @click="toggleMenu" type="button" style="color: #8bb9f9; background-color: transparent; border: none; cursor: pointer;">
+            <button
+              @click="toggleMenu"
+              type="button"
+              style="color: #8bb9f9; background-color: transparent; border: none; cursor: pointer"
+            >
               <span v-if="isOpenMenu">
-                <DoubleArrowLeft/>
+                <DoubleArrowLeft />
               </span>
               <span v-if="!isOpenMenu">
-                <DoubleArrowRight/>
+                <DoubleArrowRight />
               </span>
             </button>
           </div>
@@ -53,12 +57,12 @@ if(!isAuth){
         <MenuLayout />
       </el-aside>
       <el-container>
-        <el-header style="padding: 0;">
-          <HeaderLayout/>
+        <el-header style="padding: 0">
+          <HeaderLayout />
         </el-header>
-        <el-main style="padding: 25px; background-color: #f5f5f5;">
-          <div style="background-color: #FFF; border-radius: 10px; padding: 15px 17px; min-height: calc(100vh - 150px);">
-            <router-view/>
+        <el-main style="padding: 25px; background-color: #f5f5f5">
+          <div style="background-color: #fff; border-radius: 10px; padding: 15px 17px; min-height: calc(100vh - 150px)">
+            <router-view />
           </div>
         </el-main>
       </el-container>
